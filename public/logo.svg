@@ -1,0 +1,121 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background com gradiente -->
+  <rect width="512" height="512" rx="128" fill="#0A0A0A"/>
+  
+  <!-- Grid de números binários animado -->
+  <g class="binary-grid" font-family="monospace" font-size="14" opacity="0.2">
+    <text x="40" y="80" fill="#FF00FF">1010</text>
+    <text x="120" y="120" fill="#00FFFF">0101</text>
+    <text x="200" y="160" fill="#FF00FF">1100</text>
+    <text x="280" y="80" fill="#00FFFF">0011</text>
+    <text x="360" y="120" fill="#FF00FF">1111</text>
+    <text x="440" y="160" fill="#00FFFF">0000</text>
+    
+    <text x="40" y="320" fill="#00FFFF">0110</text>
+    <text x="120" y="360" fill="#FF00FF">1001</text>
+    <text x="200" y="400" fill="#00FFFF">0101</text>
+    <text x="280" y="320" fill="#FF00FF">1010</text>
+    <text x="360" y="360" fill="#00FFFF">0011</text>
+    <text x="440" y="400" fill="#FF00FF">1100</text>
+    
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 256 256"
+      to="360 256 256"
+      dur="30s"
+      repeatCount="indefinite"
+    />
+  </g>
+
+  <!-- Alaúde Medieval Estilizado -->
+  <g filter="url(#neonGlow)">
+    <!-- Corpo do Alaúde -->
+    <path
+      d="M256 160
+         C 320 160, 360 200, 360 280
+         C 360 360, 320 400, 256 400
+         C 192 400, 152 360, 152 280
+         C 152 200, 192 160, 256 160
+         Z"
+      stroke="#FF00FF"
+      stroke-width="4"
+      fill="none"
+    >
+      <animate
+        attributeName="stroke"
+        values="#FF00FF;#00FFFF;#FF00FF"
+        dur="4s"
+        repeatCount="indefinite"
+      />
+    </path>
+
+    <!-- Braço do Alaúde -->
+    <path
+      d="M256 160
+         L 256 100
+         C 256 80, 270 70, 290 70
+         L 320 70"
+      stroke="#FF00FF"
+      stroke-width="4"
+      fill="none"
+    />
+
+    <!-- Cravelhas -->
+    <circle cx="320" cy="70" r="8" fill="#00FFFF"/>
+    <circle cx="340" cy="70" r="8" fill="#FF00FF"/>
+    <circle cx="360" cy="70" r="8" fill="#00FFFF"/>
+
+    <!-- Cordas -->
+    <path d="M256 160 L 256 380" stroke="#00FFFF" stroke-width="1"/>
+    <path d="M246 160 L 246 380" stroke="#FF00FF" stroke-width="1"/>
+    <path d="M266 160 L 266 380" stroke="#00FFFF" stroke-width="1"/>
+
+    <!-- Roseta (círculo decorativo) -->
+    <circle cx="256" cy="280" r="40" stroke="#00FFFF" stroke-width="2" fill="none"/>
+    <circle cx="256" cy="280" r="30" stroke="#FF00FF" stroke-width="2" fill="none"/>
+    <circle cx="256" cy="280" r="20" stroke="#00FFFF" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- Círculo de energia -->
+  <circle 
+    cx="256" 
+    cy="256" 
+    r="180" 
+    stroke="#00FFFF" 
+    stroke-width="1"
+    stroke-dasharray="4,12"
+    opacity="0.3"
+  >
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 256 256"
+      to="360 256 256"
+      dur="20s"
+      repeatCount="indefinite"
+    />
+  </circle>
+
+  <!-- Efeitos de brilho -->
+  <defs>
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feColorMatrix
+        in="blur"
+        type="matrix"
+        values="
+          1 0 0 0 0
+          0 1 0 0 0
+          0 0 1 0 0
+          0 0 0 12 -2.5"
+        result="glow"
+      />
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
